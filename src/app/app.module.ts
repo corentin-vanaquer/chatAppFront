@@ -3,14 +3,22 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SocketIoConfig, SocketIoModule } from 'ngx-socket-io';
+import { ChatComponent } from './components/chat/chat.component';
+import { FormsModule } from '@angular/forms';
+
+const config: SocketIoConfig = { url: 'http://localhost:3000'};
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SocketIoModule.forRoot(config),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
