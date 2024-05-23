@@ -1,0 +1,19 @@
+<div class="chat-container">
+    <ul class="message-list">
+      <li *ngFor="let message of messagesReceived">
+        <span>{{ message.timestamp | date:'shortTime' }} - {{ message.content }}</span>
+      </li>
+    </ul>
+  
+    <form (submit)="sendMessage()" class="message-input">
+      <input
+        type="text"
+        name="message"
+        [(ngModel)]="messageContent"
+        class="input-field"
+        required
+      />
+      <button type="submit" class="send-button">Send</button>
+    </form>
+  </div>
+  
